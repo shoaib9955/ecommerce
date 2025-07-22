@@ -22,7 +22,7 @@ const Signup = () => {
   return (
     <form
       onSubmit={handleSignup}
-      className="flex flex-col gap-4 max-w-sm mx-auto mt-10"
+      className="flex flex-col gap-4 max-w-sm mx-auto mt-10 bg-white/10 backdrop-blur-md border border-white/30 shadow-lg rounded-xl p-6"
     >
       <h2 className="text-2xl font-bold">Signup</h2>
       <input

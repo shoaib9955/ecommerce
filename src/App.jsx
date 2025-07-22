@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+
+// Pages
 import Home from "./Pages/Home";
 import ProductDetails from "./Pages/ProductDetails";
-import Navbar from "./components/Navbar";
 import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
-import { useAuth } from "./Context/AuthContext"; // ✅
-import Checkout from "./pages/Checkout";
+import Checkout from "./Pages/Checkout";
+
+// Components
+import Navbar from "./components/Navbar";
+
+// Context
+import { useAuth } from "./Context/AuthContext";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -15,7 +21,9 @@ function App() {
 
   return (
     <>
-      <Navbar onSearch={setSearchTerm} user={user} /> {/* ✅ pass user */}
+      {/* ✅ Navbar gets searchTerm handler and user */}
+      <Navbar onSearch={setSearchTerm} user={user} />
+
       <div className="p-4">
         <Routes>
           <Route path="/" element={<Home searchTerm={searchTerm} />} />

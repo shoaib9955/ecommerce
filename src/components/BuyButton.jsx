@@ -1,10 +1,11 @@
-// src/components/BuyButton.jsx
-import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const BuyButton = () => {
+  const navigate = useNavigate();
+
   const handleCOD = () => {
     alert("✅ Order placed successfully! (Cash on Delivery)");
-    // You can add Firestore logic or redirect logic here if needed
+    navigate("/thank-you");
   };
 
   return (
@@ -16,5 +17,3 @@ const BuyButton = () => {
     </button>
   );
 };
-
-export default BuyButton;

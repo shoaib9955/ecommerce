@@ -37,8 +37,8 @@ const ProductDetails = () => {
           className="w-60 h-60 object-contain border rounded"
         />
         <div>
-          <p className="text-gray-700 mb-4">{product.description}</p>
-          <p className="text-xl font-semibold text-blue-600 mb-2">
+          <p className="text-gray-800 font-bold mb-6">{product.description}</p>
+          <p className="text-xl font-semibold text-green-600 mb-2">
             ₹{product.price}
           </p>
 

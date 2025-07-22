@@ -24,15 +24,17 @@ const Checkout = () => {
     );
   };
 
-  if (!product) return <p>Loading product...</p>;
+  if (!product) return <p className="text-center p-4">Loading product...</p>;
 
   return (
     <div className="max-w-2xl mx-auto p-6">
       <h2 className="text-2xl font-bold mb-4">Cash on Delivery Checkout</h2>
+
       <div className="bg-white rounded p-4 shadow mb-6">
         <p className="text-lg font-semibold">{product.title}</p>
-        <p>Price: ₹{product.price}</p>
+        <p>Price: ₹{product.price.toLocaleString("en-IN")}</p>
       </div>
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -45,7 +47,7 @@ const Checkout = () => {
         <input
           type="text"
           required
-          placeholder="Address"
+          placeholder="Full Address with PIN"
           value={formData.address}
           onChange={(e) =>
             setFormData({ ...formData, address: e.target.value })
@@ -55,7 +57,7 @@ const Checkout = () => {
         <input
           type="tel"
           required
-          placeholder="Phone Number"
+          placeholder="10-digit Phone Number"
           value={formData.phone}
           onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           className="w-full p-2 border rounded"

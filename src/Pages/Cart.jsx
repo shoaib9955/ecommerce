@@ -25,7 +25,7 @@ const Cart = () => {
           <div>
             <h3 className="font-semibold">{item.title}</h3>
             <p>
-              ${item.price} × {item.quantity}
+              ₹{item.price.toLocaleString("en-IN")} × {item.quantity}
             </p>
           </div>
           <button
@@ -38,7 +38,9 @@ const Cart = () => {
       ))}
 
       <div className="text-right mt-6">
-        <p className="text-lg font-semibold mb-4">Total: ${total.toFixed(2)}</p>
+        <p className="text-lg font-semibold mb-4">
+          Total: ₹{total.toLocaleString("en-IN")}
+        </p>
 
         <button
           onClick={handleBuyNow}
