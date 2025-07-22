@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../Context/AuthContext";
 import Logout from "../Pages/Logout";
+import { useAuth } from "../Context/AuthContext"; // ✅ Correct
 
 function Navbar({ onSearch }) {
   const { user } = useAuth();
