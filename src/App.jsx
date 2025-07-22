@@ -6,7 +6,7 @@ import Navbar from "./components/Navbar";
 import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
-import { useAuth } from "./context/AuthContext"; // ✅
+import { useAuth } from "./Context/AuthContext"; // ✅
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
