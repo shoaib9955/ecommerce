@@ -7,6 +7,7 @@ import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import { useAuth } from "./Context/AuthContext"; // ✅
+import Checkout from "./pages/Checkout";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,6 +23,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/checkout/:id" element={<Checkout />} />
         </Routes>
       </div>
     </>
