@@ -8,6 +8,7 @@ import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Checkout from "./Pages/Checkout";
+import ForgotPassword from "./Pages/ForgotPassword"; // Optional: if the file exists
 
 // Components
 import Navbar from "./components/Navbar";
@@ -21,9 +22,7 @@ function App() {
 
   return (
     <>
-      {/* ✅ Navbar gets searchTerm handler and user */}
       <Navbar onSearch={setSearchTerm} user={user} />
-
       <div className="p-4">
         <Routes>
           <Route path="/" element={<Home searchTerm={searchTerm} />} />
@@ -32,6 +31,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/checkout/:id" element={<Checkout />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </div>
     </>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom"; // ⬅️ add useNavigate
+import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
 
 const ProductDetails = () => {
@@ -7,7 +7,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const [addedMessage, setAddedMessage] = useState("");
   const { addToCart } = useCart();
-  const navigate = useNavigate(); // ⬅️ initialize navigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`https://dummyjson.com/products/${id}`)
@@ -24,7 +24,7 @@ const ProductDetails = () => {
   };
 
   const handleBuyNow = () => {
-    navigate(`/checkout/${product.id}`); // ⬅️ redirect to checkout page
+    navigate(`/checkout/${product.id}`);
   };
 
   return (

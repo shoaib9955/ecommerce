@@ -25,6 +25,7 @@ const Signup = () => {
       className="flex flex-col gap-4 max-w-sm mx-auto mt-10 bg-white/10 backdrop-blur-md border border-white/30 shadow-lg rounded-xl p-6"
     >
       <h2 className="text-2xl font-bold">Signup</h2>
+
       <input
         type="email"
         value={email}
@@ -33,6 +34,7 @@ const Signup = () => {
         placeholder="Email"
         className="border px-3 py-2 rounded"
       />
+
       <input
         type="password"
         value={password}
@@ -41,9 +43,11 @@ const Signup = () => {
         placeholder="Password"
         className="border px-3 py-2 rounded"
       />
+
       <button type="submit" className="bg-green-600 text-white py-2 rounded">
         Sign Up
       </button>
+
       {error && <p className="text-red-600">{error}</p>}
     </form>
   );
