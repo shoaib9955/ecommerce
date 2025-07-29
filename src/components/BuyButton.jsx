@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const BuyButton = () => {
   const navigate = useNavigate();
@@ -7,28 +7,16 @@ const BuyButton = () => {
   const handleCOD = () => {
     alert("✅ Order placed successfully! (Cash on Delivery)");
     navigate("/thank-you");
-=======
-// src/components/BuyButton.jsx
-import React from "react";
-
-const BuyButton = () => {
-  const handleCOD = () => {
-    alert("✅ Order placed successfully! (Cash on Delivery)");
-    // You can add Firestore logic or redirect logic here if needed
->>>>>>> a3face3 (🚀 Initial commit with updated ecommerce project)
   };
 
   return (
     <button
       onClick={handleCOD}
-      className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+      className="mt-4 bg-pink-100/10 backdrop-blur-md border border-pink-300/30 text-pink-900 px-6 py-2 rounded-xl shadow-lg hover:scale-105 transition-transform"
     >
       Place Order (Cash on Delivery)
     </button>
   );
 };
-<<<<<<< HEAD
-=======
 
 export default BuyButton;
->>>>>>> a3face3 (🚀 Initial commit with updated ecommerce project)

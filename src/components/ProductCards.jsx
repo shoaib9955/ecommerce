@@ -13,7 +13,7 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="border p-4 rounded shadow hover:shadow-lg transition flex flex-col">
+    <div className="bg-pink-200 backdrop-blur-md border border-pink-600/30 p-4 rounded shadow hover:shadow-lg transition flex flex-col">
       <img
         src={product.images?.[0]}
         alt={product.title}
