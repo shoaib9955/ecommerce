@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
+import { useAuth } from "../Context/AuthContext"; // import Auth context
 import { useState } from "react";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
+  const { user } = useAuth(); // get logged-in user
   const [addedMessage, setAddedMessage] = useState("");
 
   const handleAddToCart = () => {
@@ -34,16 +36,27 @@ const ProductCard = ({ product }) => {
           View Details
         </Link>
 
-        <button
-          onClick={handleAddToCart}
-          className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded shadow"
-        >
-          Add to Cart
-        </button>
+        {/* Only show Add to Cart if user is logged in */}
+        {user && (
+          <button
+            onClick={handleAddToCart}
+            className="bg-blue-600 hover:bg-blue-700 text-white text-sm px-3 py-1 rounded shadow"
+          >
+            Add to Cart
+          </button>
+        )}
       </div>
 
+      {/* Optional message */}
       {addedMessage && (
         <p className="text-green-600 text-sm mt-2">{addedMessage}</p>
+      )}
+
+      {/* Optional: show message to non-logged-in users */}
+      {!user && (
+        <p className="text-red-500 text-sm mt-2">
+          Login to add items to your cart
+        </p>
       )}
     </div>
   );

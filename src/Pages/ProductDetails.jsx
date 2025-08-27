@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useCart } from "../Context/CartContext";
+import { useAuth } from "../Context/AuthContext"; // import Auth context
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [addedMessage, setAddedMessage] = useState("");
   const { addToCart } = useCart();
+  const { user } = useAuth(); // get logged-in user
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -59,21 +61,28 @@ const ProductDetails = () => {
             ₹{product.price}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button
-              onClick={handleAddToCart}
-              className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded shadow transition hover:shadow-purple-500 text-sm sm:text-base"
-            >
-              Add to Cart
-            </button>
+          {/* Conditional Buttons */}
+          {user ? (
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button
+                onClick={handleAddToCart}
+                className="bg-purple-600 hover:bg-purple-700 text-white px-6 py-2 rounded shadow transition hover:shadow-purple-500 text-sm sm:text-base"
+              >
+                Add to Cart
+              </button>
 
-            <button
-              onClick={handleBuyNow}
-              className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded shadow transition hover:shadow-pink-500 text-sm sm:text-base"
-            >
-              Buy Now (COD)
-            </button>
-          </div>
+              <button
+                onClick={handleBuyNow}
+                className="bg-pink-600 hover:bg-pink-700 text-white px-6 py-2 rounded shadow transition hover:shadow-pink-500 text-sm sm:text-base"
+              >
+                Buy Now (COD)
+              </button>
+            </div>
+          ) : (
+            <p className="text-red-500 text-sm sm:text-base">
+              Please login to add items to cart or buy.
+            </p>
+          )}
 
           {addedMessage && (
             <p className="text-pink-200 mt-4 font-medium text-sm sm:text-base">
