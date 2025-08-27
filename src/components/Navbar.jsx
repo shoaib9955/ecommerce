@@ -68,18 +68,31 @@ function Navbar({ onSearch }) {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="sm:hidden w-full mt-2 bg-white/80 backdrop-blur rounded-lg shadow-md p-3 flex flex-col gap-2 text-center text-sm">
-          <Link to="/cart" onClick={() => setMenuOpen(false)}>
+        <div className="sm:hidden w-full mt-2 bg-white/70 backdrop-blur-lg rounded-xl shadow-lg p-4 flex flex-col gap-3 text-center text-sm animate-fadeIn">
+          <Link
+            to="/cart"
+            onClick={() => setMenuOpen(false)}
+            className="flex items-center justify-center gap-2 py-2 px-4 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-300 font-medium shadow-sm"
+          >
             🛒 Cart
           </Link>
+
           {user ? (
-            <Logout />
+            <Logout className="py-2 px-4 rounded-lg hover:bg-red-500 hover:text-white transition-all duration-300 shadow-sm" />
           ) : (
             <>
-              <Link to="/login" onClick={() => setMenuOpen(false)}>
+              <Link
+                to="/login"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-2 py-2 px-4 rounded-lg hover:bg-green-500 hover:text-white transition-all duration-300 font-medium shadow-sm"
+              >
                 🔑 Login
               </Link>
-              <Link to="/signup" onClick={() => setMenuOpen(false)}>
+              <Link
+                to="/signup"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-2 py-2 px-4 rounded-lg hover:bg-blue-500 hover:text-white transition-all duration-300 font-medium shadow-sm"
+              >
                 📝 Signup
               </Link>
             </>
